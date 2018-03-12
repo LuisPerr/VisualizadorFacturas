@@ -25,7 +25,7 @@ var dashboard = function (conf) {
  * URL = '/api/dashboard/empresas'
   */
 dashboard.prototype.get_empresas = function(req, res, next){
-     console.log( "Hola Empresas" );
+    
     var self    = this;
     var params = [];
 
