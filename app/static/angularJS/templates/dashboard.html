@@ -1,0 +1,54 @@
+<div width='100%' ng-init="Init()">
+    <div class="text-center">
+        <h2>
+            <label> CONSULTA DE FACTURAS REGISTRADAS POR AGENCIA EMISORA </label>
+        </h2>
+    </div>
+    <div class="container">
+        <form class="form-grup" ng-submit="submit()">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <p class="text-rigth">
+                            <label for="selectedEmpresa">SELECCIONE LA AGENCIA DONDE REALIZO SU COMPRA:</label>
+                        </p>
+                        <select class="form-control" id="selectedEmpresa" ng-model="selectedEmpresa">
+                            <option value='0'>- Selecciona una empresa -</option>
+                            <option ng-repeat="mkt in marcas |offset: currentPage*itemsPerPage | limitTo: itemsPerPage" value="{{ mkt.em_IdEmpresa}} ">{{ mkt.em_Descripcion }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <p class="text-rigth">
+                        <label> CONOZCO EL NÚMERO DE FACTURA: </label>
+                    </p>
+                    <div class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                            <label> Serie: </label>
+                            <label for="inputSerie" class="sr-only">Serie</label>
+                            <input type="text" class="form-control" id="inputSerie" placeholder="Serie" ng-model="inputSerie">
+
+                            <label> Folio: </label>
+                            <label for="inputFolio" class="sr-only">Folio</label>
+                            <input type="text" class="form-control" id="inputFolio" placeholder="Folio" ng-model="inputFolio">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div width='100%' class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Consultar Facturas</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+            <div id="pdfContent">
+                <div class="sk-double-bounce1"></div>
+                <div ng-show="loadingOrder" class="sk-spinner sk-spinner-double-bounce">
+                    <div class="sk-double-bounce2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

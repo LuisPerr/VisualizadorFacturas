@@ -1,0 +1,48 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-12">
+        <h2>Noticias</h2>
+        <span>{{ time | date:'longDate'}}</span>
+    </div>
+</div>
+<br>
+<br>
+<div class="wrapper wrapper-content">
+    <div class="row animated fadeInRight">
+        <div class="col-sm-6">
+            <div ng-show="$even" ng-repeat="new in listNews" class="social-feed-box">
+                <div class="social-avatar">
+                    <div class="media-body">
+                        <span class="pull-right badge" ng-show="new.idEstatus==1">Nueva</span>
+                        <h3>{{new.titulo}}</h3>
+                        <small class="text-muted">{{new.fecha| date:'longDate'}}</small>
+                    </div>
+                </div>
+                <div class="social-body">
+                    <img ng-src="{{new.urlImagen}}" />
+                    <p>
+                        {{new.descripcion}}
+                    </p>
+                    <button ng-click="newSeen(new.idNoticia,user.ppro_idUserRol==1 ? user.rfc : user.ppro_userId)" ui-sref="admin.detail({id:new.idNoticia})" class="btn btn btn-primary btn-block btn-sm">Leer mas</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div ng-show="$odd" ng-repeat="new in listNews" class="social-feed-box">
+                <div class="social-avatar">
+                    <div class="media-body">
+                        <span class="pull-right badge" ng-show="new.idEstatus==1">Nueva</span>
+                        <h3>{{new.titulo}}</h3>
+                        <small class="text-muted">{{new.fecha| date:'longDate'}}</small>
+                    </div>
+                </div>
+                <div class="social-body">
+                    <img ng-src="{{new.urlImagen}}" />
+                    <p>
+                        {{new.descripcion}}
+                    </p>
+                    <button ng-click="newSeen(new.idNoticia,user.rfc)" ui-sref="admin.detail({id:new.idNoticia})" class="btn btn btn-primary btn-block btn-sm">Leer mas</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

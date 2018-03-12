@@ -1,0 +1,149 @@
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Cuenta</h2>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div ng-show="user.ppro_idUserRol != 2" class="row animated fadeInRight">
+        <div class="col-md-4">
+            <div class="ibox float-e-margins">
+                <div>
+                    <div class="ibox-content profile-content">
+                        <div class="text-center profile-image">
+                            <img ng-show="user.urlLogo" src="/logo/{{user.rfc}}.{{user.urlLogo}}" class="img-circle circle-border m-b-md" alt="profile">
+                        </div>
+                        <h3>{{user.razonSocial}}</h3>
+                        <h4><strong>RFC:</strong> {{user.rfc}}</h4>
+                        <form method="POST" id="uploadLogo" class="user-button">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="fileUpload btn btn-sm btn-primary">
+                                        <span>Subir logo</span>
+                                        <input type="hidden" name="rfc" value="{{user.rfc}}" />
+                                        <input id="logoFile" type="file" name="file[]" class="upload" />
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Cambiar contraseña de acceso</h5>
+                </div>
+                <div class="ibox-content">
+                    <form class="" role="form" ng-submit="submitPass()">
+                        <div class="row">
+                            <div class=" col-sm-8">
+                                <div class="form-group">
+                                    <input minlength="6" required ng-model="pass" type="password" class="form-control" placeholder="Contraseña" id="pass">
+                                </div>
+                            </div>
+                            <div class=" col-sm-8">
+                                <div class="form-group">
+                                    <input minlength="6" required ng-model="passConfirm" type="password" class="form-control" placeholder="Confirma contraseña" id="passConfirm">
+                                </div>
+                            </div>
+                            <div class=" col-sm-4">
+                                <input type="submit" ng-click="updatePassWord()" class="btn  btn-sm  btn-primary btn-block" value="Actualizar" />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Agregar nuevos correos electrónico</h5>
+                </div>
+                <div class="ibox-content">
+                    
+<!--                     <form class="" role="form" ng-submit="submitEmail()">
+                        <div class="row">
+                            <div class=" col-sm-8">
+                                <div class="form-group">
+                                    <input required ng-model="newEmail" type="email" class="form-control" placeholder="Nuevo correo">
+                                </div>
+                            </div>
+                            <div class=" col-sm-4">
+                                <input type="submit" ng-click="updateEmail()" class="btn  btn-sm  btn-primary btn-block" value="Actualizar" />
+                            </div>
+                        </div>
+                    </form> -->
+                    <form class="" role="form" ng-submit="submitEmail()">
+                        <div class="row">
+                            <div class=" col-sm-3">
+                                <div class="form-group">
+                                <label for="pOrder.nOrder">Tipo Correo </label>
+                                <select ng-model="tipoCorreo" class="form-control" ng-change="changeMail(tipoCorreo)" ng-options="o.descripcion for o in comboCorreo track by o.idtipoCorreo">
+                                </select>
+                            </div>
+                            </div>
+                            <div class=" col-sm-7">
+                                <div class="form-group">
+                                <label for="pOrder.nOrder">Correo </label>
+                                    <input required ng-model="newEmailCat" type="email" class="form-control" placeholder="correo@correo.com">
+                                </div>
+                            </div>
+                            <div class=" col-sm-2">
+                            <label for="pOrder.nOrder" style="color:white">. </label>
+                                <input type="submit" ng-click="addMails(newEmailCat,tipoCorreo)" class="btn  btn-sm  btn-primary btn-block" value="Agregar" />
+                            </div>
+                        </div>
+                    </form>
+                    <p>
+                        El correo principal es el siguiente:
+                        <br><strong>{{user.correo}}</strong>
+                    </p>
+                    <br>
+                </div>
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="table-responsive">
+                            <table class="table  table-bordered table-condensed ">
+                                <thead>
+                                    <tr>
+                                        <th> Correo
+                                        </th>
+                                        <th>
+                                            Tipo Correo
+                                        </th>
+                                        <th>
+                                            
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody >
+                                <tr ng-repeat="lstCorreos in lstCorreos |offset: currentPage*itemsPerPage | limitTo: itemsPerPage">
+                                    <td>{{lstCorreos.correo}}</td>
+                                    <td>{{lstCorreos.descripcion}}</td>
+                                    <td><button type="button" class="btn btn-danger btn-xs" ng-click="deletedMail(lstCorreos.idUsuarioCorreo)"><i class="fa fa-trash"></i></button></td>
+                                </tbody>
+                            </table>
+                        </div>
+                        Pagina {{currentPage+1}} de {{pageCount()+1}}
+                        <div class="admin-pagination">
+                        <ul class="pagination">
+                            <li ng-class="prevPageDisabled()">
+                                <a href ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a>
+                            </li>
+                            <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                                <a href="#">{{n+1}}</a>
+                            </li>
+                            <li ng-class="nextPageDisabled()">
+                                <a href ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

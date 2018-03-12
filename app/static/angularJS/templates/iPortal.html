@@ -1,0 +1,270 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+   
+    <div class="col-xs-12">
+        <div class="col-sm-12">
+            <h2>Ordenes</h2>
+        </div>
+        <div class="col-sm-12">
+            <div class="col-sm-1 hidden-xs">
+                <div class="form-group">
+                        <label for="pOrder.nOrder">Proveedor:</label>                    
+                </div>      
+            </div>
+            <div class="col-sm-2 hidden-xs">    
+                <div class="form-group">                    
+                        <input type="text" class="form-control" ng-model="proveedor.RFC" disabled>                                                    
+                </div>      
+            </div>
+            <div class="col-sm-2 hidden-xs">    
+                <div class="form-group">
+                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#searchProveedor">Buscar Proveedor</button>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">    
+                <div class="form-group">
+                        <span>{{proveedor.Nombre}}</span>
+                </div>            
+            </div>    
+        </div> 
+        <div class="col-sm-12">
+            <div class="col-sm-2 hidden-xs">
+                            <div class="form-group">
+                                <label for="pOrder.nOrder">Empresa </label>
+
+                                <!--select ng-model="company" class="form-control" ng-change="changeCompany(company)" ng-options="o.emp_nombre for o in companyList track by o.emp_idempresa">
+                                </select-->
+                                <select class="form-control" ng-model="empresaActual" ng-options="empresa.emp_nombre for empresa in companyList track by empresa.emp_idempresa" name="txtEmpresa" ng-change="changeCompany(empresaActual)"">
+                                        <option value="">--Seleccione--</option>
+                                    </select>
+                            </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+                            <div class="form-group">
+                                <label for="pOrder.nOrder">Sucursal </label>
+                                <select ng-model="branchActual" class="form-control" ng-change="changeBranch(branchActual)" ng-options="o.suc_nombre for o in branchList track by o.suc_idsucursal">
+                                    <option value="">--Seleccione--</option>
+                                </select>
+                            </div>
+            </div>
+            <div class="col-sm-2 hidden-xs">
+                            <div class="form-group">
+                                <label for="pOrder.nOrder">Departamento</label>
+                                <select ng-model="departamentoActual" class="form-control" ng-change="changeDepto(departamentoActual)" ng-options="o.dep_nombre for o in deptosList track by o.dep_iddepartamento">
+                                    <option value="">--Seleccione--</option>
+                                </select>
+
+                            </div>
+            </div>
+            <div class="form-group col-sm-2 hidden-xs" id="calendar">
+                <label for="fInicio" class="text-main">Fecha Inicio:</label><br>
+                    <div class="input-group date">
+                        <span class="input-group-addon"></span>
+                        <input type="text" class="form-control" id="fInicio" ng-model="fechas.fechaIni">
+                    </div>
+            </div>
+            <div class="form-group col-sm-2 hidden-xs" id="calendar">
+                <label for="fInicio" class="text-main">Fecha Fin:</label><br>
+                    <div class="input-group date">
+                        <span class="input-group-addon"><!--i class="glyphicon glyphicon-calendar"></i--></span>
+                        <input type="text" class="form-control" id="fFin" ng-model="fechas.fechaFin">
+                    </div>
+            </div>
+            <div class="col-sm-1 hidden-xs">                
+                <div style="padding-top: 5px;"">
+                    <br> 
+                    <button type="button" class="btn btn-info" ng-click="search()">Buscar </button>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="row nav-orders">
+            <div class="col-sm-4">
+                <button ui-sref="admin.pOrder" class="btn btn-block btn-primary btn-outline " type="button"><i class="fa fa-clock-o"></i>
+                    <br>Pendientes</button>
+            </div>
+            <div class="col-sm-4">
+                <button ui-sref="admin.iPortal" class="btn btn-block btn-primary  animated pulse" type="button"><i class="fa fa-folder-open-o"></i>
+                    <br>Ingresadas</button>
+            </div>
+            <div class="col-sm-4">
+                <button ui-sref="admin.oPaid" class="btn btn-block btn-primary btn-outline" type="button"><i class="fa fa-usd"></i>
+                    <br>Pagadas</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrapper wrapper-content">
+    <div ng-show="visible" class="text-center animated fadeInRight">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-content">
+                    <!--div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group has-feedback">
+                                <label for="pOrder.nOrder">Búsqueda</label>
+                                <input ng-change="changeOrder()" ng-model="order" class="form-control" id="pOrder.nOrder">
+                                <i class=""></i>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 hidden-xs">
+                            <div class="form-group">
+                                <label for="pOrder.nOrder">Empresa </label>
+                                <select ng-model="company" class="form-control" ng-change="changeCompany(company)" ng-options="o.emp_nombre for o in companyList track by o.emp_idempresa">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 hidden-xs">
+                            <div class="form-group">
+                                <label for="pOrder.nOrder">Sucursal</label>
+                                <select ng-disabled="!branchSelectVisible" ng-model="branch" class="form-control" ng-change="changeBranch(branch)" ng-options="o.suc_nombre for o in branchList track by o.suc_idsucursal">
+                                </select>
+                            </div>
+                        </div>
+                    </div-->
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-condensed ">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <button ng-click="changeOrderName()" ng-class="{'fa-sort': orderName=='','fa-sort-asc': orderName=='asc','fa-sort-desc': orderName=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Orden de compra<input ng-model="order.oce_folioorden" class="form-control">
+                                    </th>
+                                    <th>
+                                        <button ng-click="changeOrderDetail()" ng-class="{'fa-sort': orderDetail=='','fa-sort-asc': orderDetail=='asc','fa-sort-desc': orderDetail=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Detalle<input ng-model="order.emp_nombre" class="form-control">
+                                    </th>
+                                    <th style="min-width:96px;">
+                                        <button ng-click="changeOrderImport()" ng-class="{'fa-sort': orderImport=='','fa-sort-asc': orderImport=='asc','fa-sort-desc': orderImport=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Importe<input ng-model="order.oce_importetotal" class="form-control">
+                                    </th>
+                                    <th>
+                                        <button ng-click="changeOrderInvoce()" ng-class="{'fa-sort': orderInvoce=='','fa-sort-asc': orderInvoce=='asc','fa-sort-desc': orderInvoce=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Factura<input ng-model="order.folio" class="form-control">
+                                    </th>
+                                    <th>
+                                        <button ng-click="changeOrderDateValid()" ng-class="{'fa-sort': orderDateValid=='','fa-sort-asc': orderDateValid=='asc','fa-sort-desc': orderDateValid=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Fecha validación<input ng-model="order.fechaValidacion" class="form-control">
+                                    </th>
+                                    <th>
+                                        <button ng-click="changeOrderDate()" ng-class="{'fa-sort': orderDate=='','fa-sort-asc': orderDate=='asc','fa-sort-desc': orderDate=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Fecha factura<input ng-model="order.fecha_factura" class="form-control">
+                                    </th>
+                                    <th>
+                                        <button ng-click="changeOrderReception()" ng-class="{'fa-sort': orderReception=='','fa-sort-asc': orderReception=='asc','fa-sort-desc': orderReception=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Recepcion<input ng-model="order.Recepcion" class="form-control"></th>
+                                    <th>
+                                        <button ng-click="changeOrderStatus()" ng-class="{'fa-sort': orderStatus=='','fa-sort-asc': orderStatus=='asc','fa-sort-desc': orderStatus=='desc'}" class="btn btn-xs fa pull-right" type="button" name="button"></button>
+                                        Estatus<input ng-model="order.Estado" class="form-control"></th>
+                                        <th>Serie<input ng-model="order.NumSerie" class="form-control"></th>
+                                        <th>Orden<input ng-model="order.ordenServicio" class="form-control"></th>
+                                    <th>Sustituir</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="order in orderList | company : company | filter : order | offset: currentPage*itemsPerPage | limitTo: itemsPerPage"> <!-- | company : company| branch:branch | filter : order | offset: currentPage*itemsPerPage | limitTo: itemsPerPage"-->
+                                    <td>
+                                        {{order.oce_folioorden}}<br>
+                                        {{order.per_rfc}}
+                                        <span ng-show="currentUser.ppro_idUserRol == 2">{{order.nombreProveedor}}</span>
+                                    </td>
+                                    <td>
+                                        {{order.emp_nombre}}
+                                        <br> {{order.suc_nombre}}
+                                        <br> {{order.dep_nombre}}
+                                    </td>
+                                    <td>
+                                        {{order.oce_importetotal | currency}}
+                                    </td>
+                                    <td>
+                                        {{order.folio}}
+                                    </td>
+
+                                    <td>
+                                        {{order.fechaValidacion | date:"dd/MM/yyyy"}}
+                                    </td>
+                                    <td>
+                                        {{order.fecha_factura | date:"dd/MM/yyyy"}}
+                                    </td>
+                                    <td>
+                                        {{order.Recepcion}}
+                                    </td>
+                                    <td>
+                                        {{order.Estado}}
+                                    </td>
+                                    <td>                                        
+                                        {{order.NumSerie}}
+                                    </td>
+                                    <td> 
+                                        {{order.ordenServicio}}  
+                                    </td>
+                                    <td>
+                                        <button ng-click="uploadinvoice(order)" type="button" class="btn btn-block" data-toggle="modal" data-target="#fileUpdateModal" name="button">{{order.idEstatus == 2 ? "Consultar factura":"Sustituir factura"}}</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    Pagina {{currentPage+1}} de {{pageCount()+1}}
+                    <div class="admin-pagination">
+                        <ul class="pagination">
+                            <li ng-class="prevPageDisabled()">
+                                <a href ng-click="prevPage()"><i class="fa fa-chevron-left"></i></a>
+                            </li>
+                            <li ng-repeat="n in range()" ng-class="{active: n == currentPage}" ng-click="setPage(n)">
+                                <a href="#">{{n+1}}</a>
+                            </li>
+                            <li ng-class="nextPageDisabled()">
+                                <a href ng-click="nextPage()"><i class="fa fa-chevron-right"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="searchProveedor" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title">Búsqueda de proveedores</h4>
+                              </div>
+                              <div class="modal-body">
+                                <div class="input-group searchinResults">
+                                  <input type="text" class="form-control" placeholder="Introduzca un nombre o RFC..." ng-model="textProveedor">
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="button" ng-click="BuscarProveedor()">Buscar</button>
+                                  </span>
+                                </div><!-- /input-group -->
+                                <div class="tableContent">
+                                  <table class="table table-striped table-condensed table-hover">
+                                    <thead>
+                                      <tr>
+                                        <th>ID</th>
+                                        <th>Nombre</th>
+                                        <th>RFC</th>
+                                        <th>Tipo</th>
+                                        <th>Acción</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <tr ng-repeat="proveedor in listaProveedores">
+                                        <td> {{ proveedor.idProveedor }} </td>
+                                        <td> {{ proveedor.Nombre }} </td>
+                                        <td> {{ proveedor.RFC }} </td>
+                                        <td> {{ proveedor.Tipo }} </td>
+                                        <td> <button type="button" class="btn btn-default glyphicon glyphicon-hand-left" data-toggle="tooltip" data-placement="top" title="Seleccionar" ng-click="SetProveedor(proveedor);"></button> </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Salir</button>
+                              </div>
+                            </div><!-- /.modal-content -->
+                          </div><!-- /.modal-dialog -->
+                    </div><!-- /.modal -->
+

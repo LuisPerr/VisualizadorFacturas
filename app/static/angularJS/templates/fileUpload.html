@@ -1,0 +1,72 @@
+<div class="modal fade" id="fileModal" tabindex="-1" role="dialog" aria-labelledby="fileModalLabel"  ng-init="init()">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h2 class="modal-title" id="fileModalLabel"></h2>
+            </div>
+            <div class="modal-body">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h3 class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  Orden de compra
+                             </h3>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <div id="pdfContent">
+                                        <div class="sk-double-bounce1"></div>
+                                        <div ng-show="loadingOrder" class="sk-spinner sk-spinner-double-bounce">
+                                        <div class="sk-double-bounce2"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                            <h3 class="panel-title" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Subir archivos de factura
+                            </h3>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                            <div class="panel-body">
+                                <form class="dropzone" id="fileUpload"></form>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <br>
+                                        <button ng-show="uploadButton" ng-click="uploadInvoice()" class="btn btn-primary btn-block" type="button" name="button">Subir factura</button>
+                                        <button ng-show="closeButton" data-dismiss="modal" class="btn btn-success btn-block" type="button" name="button">Cerrar</button>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" ng-show="facturaSubida">
+                        <div class="panel-heading" role="tab" id="headingThree">
+                            <h3 class="panel-title" class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsethree" aria-expanded="false" aria-controls="collapsethree">
+                                Subir archivos de nota de credito
+                            </h3>
+                        </div>
+                        <div id="collapsethree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                            <div class="panel-body">
+                                <form class="dropzone" id="fileUploads"></form>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <br>
+                                        <button ng-show="uploadButton2" ng-click="uploadInvoiceCred()" class="btn btn-primary btn-block" type="button" name="button">Subir nota de credito</button>
+                                        <button ng-show="closeButtons" data-dismiss="modal" class="btn btn-success btn-block" type="button" name="button">Cerrar</button>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

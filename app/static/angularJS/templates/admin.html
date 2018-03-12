@@ -1,0 +1,87 @@
+<div id="wrapper">
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <div class="">
+                            <img ng-show='showImage' alt="image" class="img-circle circle-border m-b-md" src="/logo/{{user.rfc}}.{{user.urlLogo}}"/>
+                            <img ng-show='!showImage' alt="image" class="img-circle circle-border m-b-md" src="/logo/default.jpg" />
+                        </div>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">{{razonSocial}}</strong>
+                         </span> <span class="text-muted text-xs block">{{rfc}} <b class="caret"></b></span> </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="cuenta">Cuenta</a></li>
+                            <li class="divider"></li>
+                            <li><a ng-click="logout()" href="#">Salir</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        GA
+                    </div>
+                </li>
+                <!-- <li>
+                    <a href="/noticias"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Noticias</span></a>
+                </li>
+                <li>
+                    <a href="/ordenes-pendientes"><i class="fa fa-file-o"></i> <span class="nav-label">Ordenes</span></a>
+                </li> -->
+                <li ng-show="user.ppro_idUserRol != 2">
+                    <a href="/cuenta"><i class="fa fa-user"></i> <span class="nav-label">Cuenta</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="page-wrapper" class="gray-bg">
+        <div class="row border-bottom">
+            <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+                <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                </div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li>
+                        <h3 class="m-r-lg text-muted welcome-message"><strong>GRUPO ANDRADE | </strong>Visualizador PDF</h3>
+                    </li>
+
+                    <!-- <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-newspaper-o"></i> <span ng-show="alertNews.idEstatus==1" class="label label-warning">{{alertNews.textoAlerta}}</span>
+                        </a>
+                        <ul ng-show="alertNews.idEstatus==1" class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a ng-click="viewAlert(rfc,2)" href="noticias">
+                                    <div>
+                                        <i class="fa fa-newspaper-o"></i> Tienes {{alertNews.textoAlerta}} noticias sin leer
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                            <i class="fa fa-file-o"></i> <span ng-show="alertNewOrder.idEstatus==1" class="label label-primary">{{alertNewOrder.textoAlerta}}</span>
+                        </a>
+                        <ul ng-show="alertNewOrder.idEstatus==1" class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a ng-click="viewAlert(rfc,1)" href="ordenes-pendientes">
+                                    <div>
+                                        <i class="fa fa-file-o"></i> Tienes {{alertNewOrder.textoAlerta}} ordenes de compra sin leer
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a ng-click="logout()" href="#">
+                            <i class="fa fa-sign-out"></i> Cerrar sesión
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div ui-view></div>
+    </div>
+
+</div>

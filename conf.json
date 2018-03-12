@@ -1,0 +1,12 @@
+{
+    "server": "http://localhost:55442/api/",    
+    "port": 4400,
+    "SQL_user": "sa",
+    "SQL_password": "S0p0rt3",
+    "SQL_server": "192.168.20.99",
+    "SQL_database": "GA_Visualizador",
+    "SQL_connectionTimeout": 60000,
+    "secret": "Andrade",
+    "WSOrdenCompra": "http://192.168.20.92:8091/WS_Gen_Pdf.asmx?WSDL",
+    "WSFactura": "http://192.168.20.89:8095/Service1.asmx?WSDL"
+}
