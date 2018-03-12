@@ -25,11 +25,11 @@ var dashboard = function (conf) {
  * URL = '/api/dashboard/empresas'
   */
 dashboard.prototype.get_empresas = function(req, res, next){
-    
+
     var self    = this;
     var params = [];
 
-    this.model.query('[dbo].[marcas_get_SP]', params, function(error, result) {
+    this.model.query('[dbo].[empresas_get_SP]', params, function(error, result) {
         // console.log('error', error)
         // console.log('result', result)
 
@@ -86,7 +86,7 @@ dashboard.prototype.get_pdfWSOrdenCompra = function(req, res, next) {
                                 
                                 console.log("error", err);
                                 var arrayBits = result["soap:Envelope"]["soap:Body"][0].MuestraFacturaResponse[0].MuestraFacturaResult[0].pdf; 
-                                console.log( "arrayBits", arrayBits );
+                                //console.log( "arrayBits", arrayBits );
                                 self.view.expositor(res, {
                                     //mensaje: mensaje,
                                     result: {

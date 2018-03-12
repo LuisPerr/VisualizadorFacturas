@@ -10,19 +10,18 @@ app.controller('dashboardController', function($scope, $location, $state, User, 
         if( loggin === null ){
             $state.go('login');
         }else{
-            console.log('Bienvenido');
+            
             $scope.getMarcas = function() {
                 Dashboard.getMarcas().then(function(response) {
                     $scope.marcas = response.data;
-                    console.log( 'Marcas', $scope.marcas );
                 }, function(error) {
                     AlertFactory.error('Error al traer las empresas.');
                 });
             };
 
             $scope.submit = function () {
-                
-                Dashboard.pdfWSOrdenCompra("AVI140211LX5", 'X', $scope.inputSerie, $scope.inputFolio).then(function (d) {
+                console.log( "Empresas",  $scope.selectedEmpresa );
+                Dashboard.pdfWSOrdenCompra($scope.selectedEmpresa, 'X', $scope.inputSerie, $scope.inputFolio).then(function (d) {
                     console.log('WS node: ');
                     console.log(d);
 

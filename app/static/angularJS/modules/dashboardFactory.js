@@ -6,7 +6,6 @@ app.factory("Dashboard", function($http, $cookies) {
             return $http.get(urlGetEmpresas);
         },
         pdfWSOrdenCompra: function (rfcEmisor, rfcReceptor, serie, folio) {
-            console.log( "HolapdfWSOrdenCompra" );
             return $http({
                 url: urlPdfFactura,
                 method: "GET",
