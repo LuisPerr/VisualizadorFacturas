@@ -16,8 +16,10 @@
     "passport-local": "^1.0.0",
     "request": "^2.72.0",
     "serve-favicon": "^2.1.6",
+    "soap": "^0.23.0",
     "socket.io": "^1.2.0",
     "swig": "^1.4.2",
-    "uuid": "^2.0.2"
+    "uuid": "^2.0.2",
+    "xml2js": "^0.4.19"
   }
 }
