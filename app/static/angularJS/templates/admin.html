@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <nav class="navbar-default navbar-static-side" role="navigation">
+    <!-- <nav class="navbar-default navbar-static-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header">
@@ -22,27 +22,29 @@
                         GA
                     </div>
                 </li>
-                <!-- <li>
+                <li>
                     <a href="/noticias"><i class="fa fa-newspaper-o"></i> <span class="nav-label">Noticias</span></a>
                 </li>
                 <li>
                     <a href="/ordenes-pendientes"><i class="fa fa-file-o"></i> <span class="nav-label">Ordenes</span></a>
-                </li> -->
+                </li>
                 <li ng-show="user.ppro_idUserRol != 2">
                     <a href="/cuenta"><i class="fa fa-user"></i> <span class="nav-label">Cuenta</span></a>
                 </li>
             </ul>
         </div>
-    </nav>
-    <div id="page-wrapper" class="gray-bg">
+    </nav> -->
+    <div id="page-wrapper" class="gray-bg" style="margin-left: 0px !important;">
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                </div>
+                <!-- <div class="navbar-header">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                        <i class="fa fa-bars"></i> 
+                    </a>
+                </div> -->
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <h3 class="m-r-lg text-muted welcome-message"><strong>GRUPO ANDRADE | </strong>Visualizador PDF</h3>
+                        <h3 class="m-r-lg text-muted welcome-message"><strong>GRUPO ANDRADE | </strong>Visualizador de Facturas</h3>
                     </li>
 
                     <!-- <li class="dropdown">
@@ -84,4 +86,134 @@
         <div ui-view></div>
     </div>
 
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-4 col-md-12 col-sm-4">
+                    <img src="images/Footer/logo_andrade_footer.png" width="180" height="180" class="img-responsive" />
+                    <br />
+                    <br />
+                    <img src="images/Footer/icono_correo_footer.png" />
+                    <span class="FontF1">
+                        contacto@grupoandrade.com.mx
+                    </span>
+                    <br />
+                    <br />
+                    <img src="images/Footer/icono_what_footer.png" />
+                    <span class="FontF1">
+                        044 55350243
+                    </span>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="width: 537px">
+                    <span class="FontF2 hidden-xs">
+                        <br />
+                    </span>
+                    <span class="FontF2 hidden-xs">
+                        <br />
+                    </span>
+    
+                    <ul>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            Aspectos legales
+                        </li>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            Política de privacidad
+                        </li>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            Sobre nosotros
+                        </li>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            <p id="btnContacto" data-target="#myModal" data-toggle="modal">Contáctanos</p>
+                        </li>
+                    </ul>
+                    <div style="padding-left:360px;padding-top:40px">
+                        <span class="FontF2">
+                            LLÉVANOS CONTIGO
+                        </span>
+                    </div>
+                    <div class="row">
+                        <br />
+                    </div>
+                    <div class="row" style="padding-left:320px">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/Footer/app_store.png" class="" style="margin-bottom:5px;width:110px;height:40px" />
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/Footer/play_store.png" class="" style="margin-bottom:5px;width:110px;height:40px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog" tabindex="-1" data-backdrop="false">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Envíanos tus datos.</h4>
+                    </div>
+                    <div class="modal-body" id="ContenidoModal1">
+                        <div class="alert alert-info" id="ContenidoModal">
+                            <form id="myForm" method="post">
+                                <div class="form-horizontal">
+                                    <h4></h4>
+                                    <div class="form-group">
+                                        <label for="Nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="Nombre" name="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telefono">Teléfono</label>
+                                        <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="1234567890123">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="correo">Correo</label>
+                                        <input type="text" class="form-control" id="Correo" name="Correo">
+                                    </div>
+                                    <input class="btn btn-default" type="submit" value="Enviar" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--Modal resultado-->
+        <div class="modal fade" id="modalResultado" role="dialog" data-backdrop="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title FontH2">Grupo Andrade</h4>
+                    </div>
+                    <div class="modal-body alert-success" id="Contenido">
+    
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal Favs-->
+        <div class="modal fade" id="modalFavs" role="dialog" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title FontH2" style="color:blue">
+                            <span class="glyphicon glyphicon-star" style="color:orange"></span>Mis favoritos</h4>
+                    </div>
+                    <div class="modal-body" id="tab">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>

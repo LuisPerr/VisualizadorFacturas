@@ -23,6 +23,7 @@
 
     <!--link href="css/plugins/dropzone/basic.css" rel="stylesheet"-->
 
+    <link href="/css/style.default.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
     <link href="/css/portal.css" rel="stylesheet" />
 
@@ -47,13 +48,33 @@
 </head>
 
 <body ng-app="app">
-
+    <div id="top">
+        <div class="">
+            <div class="row">
+                <div class="col-xs-offset-8 col-xs-2 text-right">
+                    <img src="images/Footer/icono_what_footer.png" />
+                    <span class="FontH3">
+                        044 55350243
+                    </span>
+                </div>
+                <div class="col-xs-2 text-center">
+                    <div class="contact">
+                        <img src="images/Header/icono-face.png" />
+                        <span class="FontH3">
+                            facebook
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div ui-view="admin" style="height:100%;"></div>
     <div ui-view="fileUpload"></div>
     <div ui-view="fileUpdate"></div>
     <div ui-view="fileCheck"></div>
     <!--LQMA add 06022018-->
     <div ui-view="fileLotePago"></div>
+    
 
     <!--Librerias de aplicación angular-->
     <script src="/angularJS/app.js"></script>
@@ -97,6 +118,6 @@
 
     <!--LQMA add 12092017-->
     <script src="js/bootstrap-datepicker.js"></script>
-</body>
 
+</body>
 </html>

@@ -1,9 +1,11 @@
 ﻿app.controller('signupController', function($scope, User, AlertFactory, $state) {
-    $scope.razon        = '';
-    $scope.email        = '';
-    $scope.rfc          = '';
-    $scope.pass         = '';
-    $scope.passConfirm  = '';
+    $scope.razon        = 'Luiguito';
+    $scope.email        = 'lgarciaperrusquia@gmail.com';
+    $scope.rfc          = 'GAPL911206';
+    $scope.pass         = 'Luis121130013';
+    $scope.passConfirm  = 'Luis121130013';
+    $scope.sendEmail = '';
+    $scope.sendToken = '';
     
     $scope.signup = function() {
         
@@ -38,13 +40,24 @@
                         response.data[0].msg, 
                         {timeOut: 2000}
                     );
-                }
+                } 
+                $scope.sendMail(response.data[0].correo, response.data[0].token);
                 console.log("response", response );
             },
             function(err){
               console.log(err)
             })
     };
+
+    $scope.sendMail = function(email, token) {
+        User.sendMail( email, token )
+        .then(function(responseMail) {
+            console.log("responseMail", responseMail);
+        },
+        function(err){
+            console.log(err)
+        })
+    }
 
     var password= document.getElementById("pass"),
     confirm_password = document.getElementById("passConfirm");

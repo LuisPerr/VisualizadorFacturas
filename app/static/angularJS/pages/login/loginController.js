@@ -1,6 +1,10 @@
 app.controller('loginController', function($scope, $location, $state, User, AlertFactory, New) {
-    $scope.rfc = ""
-    $scope.pass = ""
+    if( localStorage.getItem('rfcUser') !== undefined){
+        $scope.rfc = localStorage.getItem('rfcUser');
+    }else{
+        $scope.rfc = '';
+    }
+    $scope.pass = '';
 
     $scope.submit = function() {
         

@@ -1,18 +1,163 @@
 <div style="height:100%" class="gray-bg">
     <div class="middle-box text-center animated fadeInDown">
+        <h1 class="logo-name">
+            <img width="250" src="images/logoA.png" alt="" />
+        </h1>
         <br>
-        <br>
-        <br>
-        <br>
+        <!-- <h1> Visualizador de Facturas </h1> -->
         <h2>Activando cuenta</h2>
 
         <br>
         <br>
-        <div id="activatingMsg">
-            Se esta validado la informacion espera.
+        <div id="activatingMsg" ng-if='showBtn === 0'>
+            Se esta validado la información espera.
+        </div>
+        <div id="activatingMsg" ng-if='showBtn === 1'>
+            ¡LISTO!
+            <br/> Se valido la información.
+        </div>
+        <br>
+        <div id="activatingMsg" ng-if='showBtn === 1'>
+            <div style="font-size: 12px;">
+                <div style="font-size: 18px;">
+                    <a class="btn-form" style="font-family: 'Raleway', sans-serif; width: 150px; background-color: #013064; border: solid 1px #013064; color: white !important; text-decoration: none !important; padding: 10px 30px;"
+                        href="http://localhost:4400/login">
+                        Login
+                    </a>
+                </div>
+            </div>
         </div>
         <br>
         <br>
     </div>
+    <footer id="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-offset-1 col-lg-4 col-md-12 col-sm-4">
+                    <img src="images/Footer/logo_andrade_footer.png" width="180" height="180" class="img-responsive" />
+                    <br />
+                    <br />
+                    <img src="images/Footer/icono_correo_footer.png" />
+                    <span class="FontF1">
+                        contacto@grupoandrade.com.mx
+                    </span>
+                    <br />
+                    <br />
+                    <img src="images/Footer/icono_what_footer.png" />
+                    <span class="FontF1">
+                        044 55350243
+                    </span>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" style="width: 537px">
+                    <span class="FontF2 hidden-xs">
+                        <br />
+                    </span>
+                    <span class="FontF2 hidden-xs">
+                        <br />
+                    </span>
 
+                    <ul>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            Aspectos legales
+                        </li>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            Política de privacidad
+                        </li>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            Sobre nosotros
+                        </li>
+                        <li class="ulFooterMapaDelSitio FontF1">
+                            <p id="btnContacto" data-target="#myModal" data-toggle="modal">Contáctanos</p>
+                        </li>
+                    </ul>
+                    <div style="padding-left:360px;padding-top:40px">
+                        <span class="FontF2">
+                            LLÉVANOS CONTIGO
+                        </span>
+                    </div>
+                    <div class="row">
+                        <br />
+                    </div>
+                    <div class="row" style="padding-left:320px">
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/Footer/app_store.png" class="" style="margin-bottom:5px;width:110px;height:40px" />
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                            <img src="images/Footer/play_store.png" class="" style="margin-bottom:5px;width:110px;height:40px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.container -->
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog" tabindex="-1" data-backdrop="false">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Envíanos tus datos.</h4>
+                    </div>
+                    <div class="modal-body" id="ContenidoModal1">
+                        <div class="alert alert-info" id="ContenidoModal">
+                            <form id="myForm" method="post">
+                                <div class="form-horizontal">
+                                    <h4></h4>
+                                    <div class="form-group">
+                                        <label for="Nombre">Nombre</label>
+                                        <input type="text" class="form-control" id="Nombre" name="Nombre">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="telefono">Teléfono</label>
+                                        <input type="text" class="form-control" id="Telefono" name="Telefono" placeholder="1234567890123">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="correo">Correo</label>
+                                        <input type="text" class="form-control" id="Correo" name="Correo">
+                                    </div>
+                                    <input class="btn btn-default" type="submit" value="Enviar" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Modal resultado-->
+        <div class="modal fade" id="modalResultado" role="dialog" data-backdrop="false">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title FontH2">Grupo Andrade</h4>
+                    </div>
+                    <div class="modal-body alert-success" id="Contenido">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Modal Favs-->
+        <div class="modal fade" id="modalFavs" role="dialog" data-backdrop="false">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title FontH2" style="color:blue">
+                            <span class="glyphicon glyphicon-star" style="color:orange"></span>Mis favoritos</h4>
+                    </div>
+                    <div class="modal-body" id="tab">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>

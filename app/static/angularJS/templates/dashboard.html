@@ -14,7 +14,7 @@
                         </p>
                         <select class="form-control" id="selectedEmpresa" ng-model="selectedEmpresa">
                             <option value='0'>- Selecciona una empresa -</option>
-                            <option ng-repeat="mkt in marcas |offset: currentPage*itemsPerPage | limitTo: itemsPerPage" value="{{ mkt.em_IdEmpresa}} ">{{ mkt.em_Descripcion }}</option>
+                            <option ng-repeat="mkt in marcas |offset: currentPage*itemsPerPage | limitTo: itemsPerPage" value="{{ mkt.em_rfc}} ">{{ mkt.em_Descripcion }}</option>
                         </select>
                     </div>
                 </div>

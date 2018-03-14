@@ -10,13 +10,17 @@
     "morgan": "^1.7.0",
     "mssql": "^3.1.2",
     "multer": "^1.1.0",
+    "nodemailer": "^4.6.2",
+    "nodemailer-smtp-transport": "^2.7.4",
     "passport": "^0.3.2",
     "passport-http-bearer": "^1.0.1",
     "passport-local": "^1.0.0",
     "request": "^2.72.0",
     "serve-favicon": "^2.1.6",
+    "soap": "^0.23.0",
     "socket.io": "^1.2.0",
     "swig": "^1.4.2",
-    "uuid": "^2.0.2"
+    "uuid": "^2.0.2",
+    "xml2js": "^0.4.19"
   }
 }
