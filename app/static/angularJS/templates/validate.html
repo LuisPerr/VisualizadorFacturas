@@ -5,8 +5,8 @@
         </h1>
         <br>
         <!-- <h1> Visualizador de Facturas </h1> -->
-        <h2>Activando cuenta</h2>
-
+        <h2 ng-if='showBtn === 0'>Activando cuenta</h2>
+        <h2 ng-if='showBtn === 1'>Cuenta activa</h2>
         <br>
         <br>
         <div id="activatingMsg" ng-if='showBtn === 0'>
@@ -21,7 +21,7 @@
             <div style="font-size: 12px;">
                 <div style="font-size: 18px;">
                     <a class="btn-form" style="font-family: 'Raleway', sans-serif; width: 150px; background-color: #013064; border: solid 1px #013064; color: white !important; text-decoration: none !important; padding: 10px 30px;"
-                        href="http://localhost:4400/login">
+                        href="http://192.168.20.99:3500/login">
                         Login
                     </a>
                 </div>
