@@ -131,17 +131,17 @@ login.prototype.post_siginup = function(req, res, next){
                     <center>
                         <br />
                         <div style="font-size: 12px;">
-                            <div style="font-size: 18px;"><a class="btn-form" style="font-family: 'Raleway', sans-serif; width: 150px; background-color: #013064; border: solid 1px #013064; color: white !important; text-decoration: none !important; padding: 10px 30px;" href="http://localhost:4400/activacionCuenta?token=` + token + `">Verificar cuenta</a></div>
+                            <div style="font-size: 18px;"><a class="btn-form" style="font-family: 'Raleway', sans-serif; width: 150px; background-color: #013064; border: solid 1px #013064; color: white !important; text-decoration: none !important; padding: 10px 30px;" href="http://192.168.20.99:3500/activacionCuenta?token=` + token + `">Verificar cuenta</a></div>
                             <br /><br /><br />
                         </div>
                        
-                        <p style="font-size: 16px; line-height: 24px; font-family: 'Raleway', sans-serif; font-style: normal;"><span style="color: #333;">¿Problemas con el botón? <br /> Copia y pega el siguiente link </p>
+                        <p style="font-size: 16px; line-height: 24px; font-family: 'Raleway', sans-serif; font-style: normal;"><span style="color: #333;">¿Problemas con el botón? <br /> Copia y pega el siguiente link: <br> http://192.168.20.99:3500/activacionCuenta?token=` + token + ` </p>
                     </center>
                 </td>
                 <td bgcolor="#f5f5f5">&nbsp;</td>
             </tr>
             <tr bgcolor="#f5f5f5">
-                <td>&nbsp;</td>
+                <td>&nbsp;</td>http://192.168.20.99:3500/
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
             </tr>
