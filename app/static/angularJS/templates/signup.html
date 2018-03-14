@@ -29,9 +29,10 @@
                     <a target="_blank" style="text-decoration:underline;" href="http://www.grupoandrade.com.mx/AspectosLegales.aspx">Leer aviso de privacidad.</a>
                 </label>
                 <div class="form-group">
-                    <div class="checkbox i-checks">
-                        <input id="checkAviso" type="checkbox">&nbspHe leído y acepto los términos y condiciones.
-                    </div>
+                    <!-- <div class="checkbox i-checks"> -->
+                        <input type="checkbox" ng-model="checkboxModel.aviso" >&nbspHe leído y acepto los términos y condiciones.
+                        <!-- <input  type="checkbox"> -->
+                    <!-- </div> -->
                 </div>
                 <button type="submit" class="btn btn-primary block full-width m-b">Crear cuenta</button>
                 <p class="text-muted text-center">

@@ -105,7 +105,6 @@ login.prototype.post_siginup = function(req, res, next){
                 <td>&nbsp;</td>
                 <tdstyle="width:600px">
                 <td>&nbsp;</td>
-                <td>&nbsp;</td>
             </tr>
             <tr bgcolor="#f5f5f5">
                 <td>&nbsp;</td>
