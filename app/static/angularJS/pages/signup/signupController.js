@@ -2,16 +2,16 @@
     $scope.checkboxModel = {
         aviso: false
     };
-    $scope.razon = 'Luiguito';
-    $scope.email = 'lgarciaperrusquia@gmail.com';
-    $scope.rfc = 'GAPL911206';
-    $scope.pass = 'Luis121130013';
-    $scope.passConfirm = 'Luis121130013';
+    $scope.razon = '';
+    $scope.email = '';
+    $scope.rfc = '';
+    $scope.pass = '';
+    $scope.passConfirm = '';
     $scope.sendEmail = '';
     $scope.sendToken = '';
 
     $scope.signup = function () {
-        console.log("Aviso", $scope.checkboxModel.aviso);
+        
         if ($scope.checkboxModel.aviso) {
             var today = new Date();
             var dd = today.getDate();
