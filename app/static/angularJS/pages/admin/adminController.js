@@ -35,6 +35,7 @@ app.controller('adminController', function($scope, $state, User, Alert) {
     $scope.logout = function() {
         localStorage.removeItem("login");
         localStorage.removeItem("userData");
+        localStorage.removeItem("rfcUser");
         if( localStorage.getItem("login") === null || localStorage.getItem("login") === undefined ){
             $state.go("login");
         }
